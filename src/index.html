@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="../dist/output.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
 <body class="bg-gray-100">
@@ -18,8 +18,18 @@
         <input id="addTask" type="text" name="inputAdd" class="w-full rounded mt-6 p-2 bg-gray-200 border" placeholder="Adicionar tarefa" autofocus>
     </div>
 
-    <div class="popup__container hidden" id="popup">
-        <div class="bg-white p-6 rounded-md shadow-md">
+    <div id="popup" class="fixed top-0 left-0 flex items-center justify-center w-full h-full bg-black bg-opacity-50 hidden">
+        <div class="bg-white rounded-lg p-8">
+            <p class="text-lg mb-4">Tem certeza que deseja excluir essa tarefa?</p>
+            <div class="flex justify-end">
+                <button class="bg-red-500 text-white px-4 py-2 rounded-md mr-2" id="btnPopupSim">Sim</button>
+                <button class="bg-gray-400 text-white px-4 py-2 rounded-md" id="btnPopupNao">Não</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden" id="popup">
+        <div class="bg-white rounded-lg p-8">
             <p class="text-lg mb-4">Tem certeza que deseja excluir essa tarefa?</p>
             <div class="flex justify-end">
                 <button class="bg-red-500 text-white px-4 py-2 rounded-md mr-2" id="btnPopupSim">Sim</button>
