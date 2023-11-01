@@ -27,7 +27,7 @@ const addTask = e => {
             saveData()
         }
 
-        inputAddTask.value = ''
+        inputAddTask.value = '' 
     }
 }
 
@@ -43,9 +43,28 @@ const deleteTask = target => {
         btnPopupNao.addEventListener('click', () => popup.classList.add('hidden'))
 }
 
+const state = (() => {
+    let isEditing = false
+
+    return{
+        getIsEditing: () => isEditing,
+        setIsEditing: () => isEditing = !isEditing
+    }
+
+})()
+
 const editTask = target => {
+    if(state.getIsEditing()){
+        return
+    }
+
+    state.setIsEditing()
+
     const taskToEdit = target.dataset.text
     const paragraph = target.querySelector('p')
+
+    const deleteIcon = target.querySelector('i[data-trash]')
+    const editIcon = target.querySelector('i[data-edit]')
 
     const inputEdit = document.createElement('input')
     inputEdit.type = 'text'
@@ -61,6 +80,13 @@ const editTask = target => {
             paragraph.textContent = inputEdit.value
 
             inputEdit.replaceWith(paragraph)
+            
+            target.dataset.text = inputEdit.value
+            deleteIcon.dataset.thash = inputEdit.value
+            editIcon.dataset.edit = inputEdit.value
+            saveData()
+
+            isEditing = false
         }
     })
 }
@@ -76,7 +102,9 @@ const saveData = () => {
 const loadTasks = () => {
     const allTasks = JSON.parse(localStorage.getItem('toDoList'))
 
-    allTasks.forEach(task => taskModel(task))
+    if(allTasks){
+        allTasks.forEach(task => taskModel(task))
+    }
 }
 
 
