@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+<body>
+    <div class="container">
+        <h1 class="title">Lista de Tarefas</h1>
+
+        <div class="search__container">
+            <input id="search" type="text" class="input__search" placeholder="Search" autocomplete="off">
+            <div class="input__search-icons">
+                <i class="ri-sort-asc input__search-icon" id="btnSortAsc"></i>
+                <i class="ri-sort-desc input__search-icon"id="btnSortDesc"></i>
+            </div>  
+        </div>
+
+        <ul id="ul"></ul>
+        
+        <input id="addTask" type="text" name="inputAdd" class="input__add" placeholder="Adicionar tarefa" autofocus>
+    </div>
+
+    <div id="popup" class="popup__container hidden">
+        <div class="popup">
+            <p class="popup__text">Tem certeza que deseja excluir essa tarefa?</p>
+            <div class="popup__buttons">
+                <button class="popup__button" id="btnPopupSim">Sim</button>
+                <button class="popup__button" id="btnPopupNao">Não</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
