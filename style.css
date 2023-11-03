@@ -4,8 +4,25 @@
     box-sizing: border-box;
     border-width: 0;
     border-style: solid;
-    border-color: #e5e7eb;
+    border-color: var(--inputs);
 }
+
+:root{
+    --inputs: rgb(229 231 235);
+    --bg: rgb(243 244 246);
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    --bg-container: white;
+    --color: rgb(29, 28, 28);
+}
+
+body.dark{
+    --inputs: rgb(100, 100, 100);
+    --bg: rgb(30, 30, 30);
+    --shadow: 0 2px 6px rgba(255, 255, 255, .2);
+    --bg-container: rgb(40, 40, 40);
+    --color: rgb(200, 200, 200);
+}
+
 
 html {
     line-height: 1.5;
@@ -13,7 +30,9 @@ html {
 }
 
 body{
-    background-color: rgb(243 244 246)
+    background-color: var(--bg);
+    color: var(--color);
+    overflow-x: hidden;
 }
 
 ul{
@@ -23,14 +42,13 @@ ul{
 }
 
 .container{
-    max-width: 28rem !important;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 2.5rem;
-    background: white;
+    max-width: 28rem;
+    margin: 2.5rem auto;
+    background: var(--bg-container);
     border-radius: 0.5rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow);
     padding: 1rem;
+    position: relative;
 }
 
 .title{
@@ -50,8 +68,13 @@ ul{
     flex: 1;
     border-radius: 0.25rem;
     padding: 0.5rem;
-    background-color: rgb(229 231 235);
+    background-color: var(--inputs);
     border-width: 1px;
+    font-weight: 500;
+}
+
+.input__search::placeholder{
+    color: var(--color);
 }
 
 .input__search-icons{
@@ -69,7 +92,12 @@ ul{
     border-radius: 0.25rem;
     margin-top: 1.5rem;
     padding: 0.5rem;
-    background-color: rgb(229 231 235);
+    background-color: var(--inputs);
+    font-weight: 500;
+}
+
+.input__add::placeholder{
+    color: var(--color);
 }
 
 .task__container{
@@ -133,7 +161,7 @@ ul{
 }
 
 .popup{
-    background-color: whitesmoke;
+    background-color: var(--bg-container);
     border-radius: 0.5rem;
     padding: 2rem;
 }
@@ -179,38 +207,27 @@ ul{
     display: none;
 }
 
+.toggle-dark{
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.5rem;
+    display: none;
+}
 
-/*
-1. Use a consistent sensible line-height in all browsers.
-2. Prevent adjustments of font size after orientation changes in iOS.
-3. Use a more readable tab size.
-4. Use the user's configured `sans` font-family by default.
-5. Use the user's configured `sans` font-feature-settings by default.
-6. Use the user's configured `sans` font-variation-settings by default.
-*/  
+.line-through{
+    text-decoration: line-through;
+}
 
 
-button,
-input,
-optgroup,
-select,
-textarea {
-  font-family: inherit;
-  /* 1 */
-  font-feature-settings: inherit;
-  /* 1 */
-  font-variation-settings: inherit;
-  /* 1 */
-  font-size: 100%;
-  /* 1 */
-  font-weight: inherit;
-  /* 1 */
-  line-height: inherit;
-  /* 1 */
-  color: inherit;
-  /* 1 */
-  margin: 0;
-  /* 2 */
-  padding: 0;
-  /* 3 */
+@media screen and (max-width: 600px) {
+    .container{
+        width: 90vw;
+    }
+
+    .title{
+        font-size: 1.5rem; 
+        font-weight: 800;
+        margin-bottom: 1rem;
+    }
 }
