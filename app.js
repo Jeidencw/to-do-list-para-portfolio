@@ -119,7 +119,7 @@ const editTask = target => {
 
 
 const searchTask = e => {
-    const inputSearch = e.target.value.trim()
+    const inputSearch = e.target.value.trim().toLocaleLowerCase()
     const lis = Array.from(document.querySelectorAll('li'))
 
     const filteredTask = lis.filter(task => task.textContent.toLocaleLowerCase().includes(inputSearch))

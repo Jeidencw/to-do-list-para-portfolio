@@ -71,6 +71,7 @@ ul{
     background-color: var(--inputs);
     border-width: 1px;
     font-weight: 500;
+    color: var(--color);
 }
 
 .input__search::placeholder{
@@ -94,6 +95,8 @@ ul{
     padding: 0.5rem;
     background-color: var(--inputs);
     font-weight: 500;
+    caret-color: var(--color);
+    color: var(--color);
 }
 
 .input__add::placeholder{
