@@ -102,7 +102,7 @@ const editTask = target => {
             inputEdit.replaceWith(paragraph)
             
             target.dataset.text = inputEdit.value
-            deleteIcon.dataset.thash = inputEdit.value
+            deleteIcon.dataset.trash = inputEdit.value
             editIcon.dataset.edit = inputEdit.value
             saveData()
         }, 0);
